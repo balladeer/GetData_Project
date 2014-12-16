@@ -30,6 +30,22 @@ For each record in the data set, the following are provided:
 
 -----------------------------------------
 
+### Script flow
+The script operates on the original HAR data set via the following steps:
+
+1. Load the data
+	* this step loads the various files from both the train and test folders into individual data.frames.
+2. Filter the list of features to only the ones that contain `mean()` or `std()`
+3. Add the subject ID (from `subject_test.txt` and `subject_train.txt`) as a new column in `test_df` and `train_df`, respectively.
+4. Add in the activity categories (as integers) from `y_test.txt` and `y_train.txt` as a new column in `test_df` and `train_df`, respectively.
+5. Merge `test_df` and `train_df` into 'full_df' via `rbind()`.
+6. Create a Factor column from the `activity_id` column, applying the appropriate labels
+7. Use the `plyr` library function `ddply` to reshape the data set into a tidy, summarized data set.
+	* This splits the data set into groups by `activity_name` and `subject_id`, and then calculates the mean for each column named in `valid_features` via the `colwise` function.
+8. Do a whole bunch of string substitutions to convert the original feature names into more descriptive names
+9. Write the new, tidy data set out to a file called `tidy_data.txt`.
+
+
 ###NOTES:
 1. When loading the measurement files (X_test.txt and X_train.txt), I use `check.names=F` to make sure that the column names are not altered (e.g. `mean()-Y` does not get changed to `mean...Y`)
 
