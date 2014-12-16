@@ -1,3 +1,7 @@
+# Project entries
+UCI HAR Dataset/*
+uci_har_data.zip
+
 # History files
 .Rhistory
 
@@ -19,7 +23,8 @@
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
