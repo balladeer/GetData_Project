@@ -1,9 +1,9 @@
 ### Feature Name Format
 Except for the first two columns, all columns are **feature columns**: they contain some data pertaining to the information recorded by the phones during the original HAR data set creation.
 
-Each feature column name is comprised of six parts, seperated by periods ('.'):
+Each feature column name is comprised of six parts, seperated by periods ('.').  The format is `summary.domain.data_source.measurment_type.axis.original_estimate`.  Below is a description of each field in the name, as well as the possible values for each:
 
-1. Summary statistic applied to the original data set to create this tidy dataset
+1. Summary: statistic applied to the original data set to create this tidy dataset
 	- always `mean` in this set - all entries are averages of data from the original data set
 2. Domain: which domain the data comes from
 	- `time` or `frequency`
